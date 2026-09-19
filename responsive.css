@@ -1,0 +1,209 @@
+:root {
+  --s: 1; /* skala icon: 1 = ukuran asli */
+}
+
+/* ---------- Dasar ---------- */
+body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Header ---------- */
+.header {
+  height: auto;
+  min-height: 100px;
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+/* ---------- Area icon (layar-1, 2, 3) ---------- */
+.layar-1,
+.layar-2,
+.layar-3 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: calc(70px * var(--s)) calc(120px * var(--s));
+  padding: calc(100px * var(--s)) calc(60px * var(--s));
+  margin-top: 30px;
+}
+
+/* Semua icon: skala + buang margin/offset lama yang berbasis px/% */
+.blok-merah,
+.bat-hitam,
+.ben-hitam,
+.avatar-muka,
+.wolverine,
+.spiderman,
+.daredevil,
+.hellokitty,
+.ultraman {
+  zoom: var(--s);
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+/* Icon di layar-1 sebelumnya digeser dengan left/right persen */
+.blok-merah,
+.bat-hitam,
+.ben-hitam {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  height: auto;
+  min-height: 100px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  padding: 15px 10px;
+}
+
+/* =====================================================================
+   Breakpoints
+   ===================================================================== */
+
+/* Layar sedang: tiga icon masih sebaris, ukuran dikecilkan */
+@media (max-width: 1320px) {
+  :root {
+    --s: 0.75;
+  }
+
+  .header {
+    justify-content: center;
+  }
+
+  .header h1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .S {
+    padding-left: 0;
+  }
+
+  .header a {
+    margin: 0 15px;
+  }
+
+  .made {
+    width: 100%;
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  footer {
+    justify-content: center;
+  }
+
+  footer h1.B {
+    padding-left: 0;
+  }
+
+  footer .loader {
+    margin: 0 20px;
+  }
+
+  .place-texts {
+    margin: 0 20px;
+  }
+}
+
+/* Tablet: icon dibesarkan lagi, otomatis jadi 2 + 1 baris */
+@media (max-width: 990px) {
+  :root {
+    --s: 0.85;
+  }
+}
+
+/* Tablet kecil / HP besar */
+@media (max-width: 760px) {
+  :root {
+    --s: 0.72;
+  }
+
+  .header h1 {
+    width: 100%;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+
+  .header a svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* svg "HTML" dan "CSS" berisi teks, jadi perlu lebih besar */
+  .header a:nth-of-type(5) svg,
+  .header a:nth-of-type(6) svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .header a {
+    margin: 0 10px;
+  }
+}
+
+/* HP */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+  }
+
+  .S {
+    font-size: 2.3rem;
+  }
+
+  .made {
+    font-size: 1rem;
+  }
+
+  footer h1 {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+  }
+
+  footer h1.B {
+    font-size: 1.6rem;
+  }
+
+  footer .loader {
+    zoom: 0.8;
+  }
+
+  .place-texts {
+    zoom: 0.9;
+  }
+}
+
+/* HP kecil */
+@media (max-width: 360px) {
+  :root {
+    --s: 0.6;
+  }
+}
+
+/* Hormati pengguna yang mematikan animasi */
+@media (prefers-reduced-motion: reduce) {
+  .blok-merah:hover,
+  .bat-hitam:hover,
+  .ben-hitam:hover,
+  .daredevil:hover,
+  .hellokitty:hover,
+  .header a:hover {
+    animation: none;
+    transform: none;
+  }
+
+  .word,
+  .texts {
+    animation: none;
+  }
+}
